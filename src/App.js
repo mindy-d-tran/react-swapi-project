@@ -1,6 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+
 import StarshipCard from "./components/StarshipCard";
+import StarshipDetail from "./components/StarshipDetail";
 
 function App() {
   const [starships, setStarships] = useState([]);
@@ -19,9 +22,15 @@ function App() {
   return (
     <div className="App">
       <h1>Star Wars Starships</h1>
-      {starships.map((starship,i) => 
+      <div className="cardList">
+        {starships.map((starship,i) => 
         <StarshipCard key={i} starship={starship} />
       )}
+      </div>
+      <Routes>
+        <Route path="/" />
+        <Route path="/starship/:name/" element={<StarshipDetail/>}/>
+      </Routes>
     </div>
   );
 }
