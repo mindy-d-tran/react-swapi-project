@@ -5,6 +5,7 @@ export default function getAllStarships() {
     const fetchData = async () => {
       const res = await fetch("https://swapi.dev/api/starships/");
       const data = await res.json();
+      console.log(data);
       return data;
     };
     fetchData();
